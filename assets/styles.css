@@ -21,8 +21,8 @@
   --ease:cubic-bezier(.22,1,.36,1);
 }
 *{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth}
-html,body{overscroll-behavior-y:none}
+html{scroll-behavior:smooth;overflow-x:hidden}
+html,body{overscroll-behavior:none;max-width:100%}
 body{
   background:var(--bg);
   color:var(--ink);
@@ -38,14 +38,16 @@ button{font-family:inherit;cursor:pointer}
 
 /* ---------- Grano / textura ---------- */
 .noise{
-  position:fixed;inset:-50%;z-index:9990;pointer-events:none;opacity:.05;
+  position:fixed;inset:0;z-index:9990;pointer-events:none;opacity:.05;
   background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 250 250' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-repeat:repeat;
+  background-size:250px 250px;
   animation:grain 8s steps(10) infinite;
 }
 @keyframes grain{
-  0%,100%{transform:translate(0,0)}10%{transform:translate(-5%,-10%)}
-  30%{transform:translate(3%,-15%)}50%{transform:translate(12%,9%)}
-  70%{transform:translate(9%,4%)}90%{transform:translate(-1%,7%)}
+  0%,100%{background-position:0 0}10%{background-position:-25px -50px}
+  30%{background-position:15px -75px}50%{background-position:60px 45px}
+  70%{background-position:45px 20px}90%{background-position:-5px 35px}
 }
 
 /* ---------- Cursor ---------- */
@@ -123,7 +125,7 @@ button{font-family:inherit;cursor:pointer}
 /* ---------- Hero ---------- */
 .hero{
   min-height:100svh;display:flex;flex-direction:column;justify-content:center;
-  padding:8rem clamp(1.25rem,4vw,3rem) 4rem;position:relative;
+  padding:8rem clamp(1.25rem,4vw,3rem) 4rem;position:relative;overflow:hidden;
 }
 .orb{position:absolute;border-radius:50%;filter:blur(90px);opacity:.5;pointer-events:none;will-change:transform}
 .orb--1{width:44vw;height:44vw;top:-12%;right:-10%;background:radial-gradient(circle,rgba(254,44,85,.5),transparent 65%)}
@@ -425,7 +427,7 @@ footer{border-top:1px solid var(--line);padding:4rem clamp(1.25rem,4vw,3rem) 2re
 
 .platform-hero{
   min-height:88svh;display:flex;flex-direction:column;justify-content:center;gap:2.4rem;
-  padding:9rem clamp(1.25rem,4vw,3rem) 4rem;position:relative;
+  padding:9rem clamp(1.25rem,4vw,3rem) 4rem;position:relative;overflow:hidden;
 }
 .logo-mark{
   width:84px;height:84px;border-radius:22px;display:grid;place-items:center;flex:none;

@@ -9,16 +9,23 @@ dark mode, acento eléctrico y animaciones fluidas.
 ## Estructura
 
 ```
-index.html            Home: overview, servicios, referidos, equipo, FAQ, formulario
+index.html            Home: overview, servicios, teasers de referidos/equipo, FAQ, formulario
 tiktok/index.html      Landing dedicada a TikTok LIVE Agency
 facebook/index.html    Landing dedicada a Facebook Monetización
 favorited/index.html   Landing dedicada a Favorited (con link oficial de aplicación)
+refer/index.html       Landing del Programa de Referidos (cómo funciona, FAQ, CTA)
+equipo/index.html      Landing de Trabaja con Nosotros (vacantes, cultura)
+manager/index.html     Ficha de la vacante Manager de Creadores (responsabilidades, requisitos)
 assets/styles.css      CSS compartido por todas las páginas
 assets/site.js         JS compartido (preloader, cursor, reveals, formulario, etc.)
 ```
 
+Las páginas de Referidos, Equipo y Manager tienen navegación cruzada entre sí
+(pills arriba del hero) además de su propio link de "volver".
+
 Publicado tal cual en GitHub Pages / Netlify / Vercel, las rutas `/tiktok/`,
-`/facebook/` y `/favorited/` resuelven solas gracias a sus `index.html`.
+`/facebook/`, `/favorited/`, `/refer/`, `/equipo/` y `/manager/` resuelven
+solas gracias a sus `index.html`.
 
 ## Características
 
