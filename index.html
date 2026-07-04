@@ -3,407 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>NOVA MCN — Agencia de Creadores · TikTok LIVE · Favorited · Facebook</title>
-<meta name="description" content="NOVA MCN: la red multicanal que convierte tus LIVES en un negocio real. Partners oficiales de TikTok LIVE Agency, Favorited y Facebook.">
+<title>Innova Group by Alliance Holding — TikTok LIVE Agency · Favorited · Facebook</title>
+<meta name="description" content="Innova Group by Alliance Holding: el holding de creadores que monetiza en TikTok LIVE Agency, Favorited y Facebook. Aplica, refiere o únete a nuestro equipo.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Space+Grotesk:wght@300;400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
-<style>
-/* ============================================================
-   NOVA MCN — Landing
-   Estética inspirada en estudios de diseño premium:
-   tipografía masiva, dark mode, acento eléctrico, motion sutil.
-   ============================================================ */
-:root{
-  --bg:#0a0a0b;
-  --bg-2:#111113;
-  --ink:#f4f2ee;
-  --ink-dim:rgba(244,242,238,.55);
-  --line:rgba(244,242,238,.12);
-  --acid:#d9ff3d;            /* acento principal */
-  --tiktok-a:#25f4ee;
-  --tiktok-b:#fe2c55;
-  --fav-a:#ff7a59;
-  --fav-b:#b13bff;
-  --fb:#1877f2;
-  --display:'Anton',Impact,sans-serif;
-  --body:'Space Grotesk',system-ui,sans-serif;
-  --serif:'Instrument Serif',Georgia,serif;
-  --ease:cubic-bezier(.22,1,.36,1);
-}
-*{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth}
-html,body{overscroll-behavior-y:none}
-body{
-  background:var(--bg);
-  color:var(--ink);
-  font-family:var(--body);
-  line-height:1.6;
-  overflow-x:hidden;
-  -webkit-font-smoothing:antialiased;
-}
-::selection{background:var(--acid);color:#0a0a0b}
-a{color:inherit;text-decoration:none}
-img{max-width:100%;display:block}
-button{font-family:inherit;cursor:pointer}
-
-/* ---------- Grano / textura ---------- */
-.noise{
-  position:fixed;inset:-50%;z-index:9990;pointer-events:none;opacity:.05;
-  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 250 250' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-  animation:grain 8s steps(10) infinite;
-}
-@keyframes grain{
-  0%,100%{transform:translate(0,0)}10%{transform:translate(-5%,-10%)}
-  30%{transform:translate(3%,-15%)}50%{transform:translate(12%,9%)}
-  70%{transform:translate(9%,4%)}90%{transform:translate(-1%,7%)}
-}
-
-/* ---------- Cursor ---------- */
-.cursor-dot,.cursor-ring{
-  position:fixed;top:0;left:0;z-index:9999;pointer-events:none;
-  border-radius:50%;transform:translate(-50%,-50%);
-}
-.cursor-dot{width:8px;height:8px;background:var(--acid)}
-.cursor-ring{
-  width:36px;height:36px;border:1.5px solid rgba(217,255,61,.6);
-  transition:width .3s var(--ease),height .3s var(--ease),background .3s,border .3s;
-}
-.cursor-ring.is-hover{width:64px;height:64px;background:rgba(217,255,61,.12);border-color:var(--acid)}
-@media (hover:none){.cursor-dot,.cursor-ring{display:none}}
-
-/* ---------- Preloader ---------- */
-.loader{
-  position:fixed;inset:0;z-index:10000;background:var(--bg);
-  display:flex;flex-direction:column;justify-content:center;align-items:center;gap:1rem;
-  transition:clip-path 1s var(--ease);
-  clip-path:inset(0 0 0 0);
-}
-.loader.done{clip-path:inset(0 0 100% 0)}
-.loader__word{
-  font-family:var(--display);font-size:clamp(3rem,10vw,8rem);
-  letter-spacing:.02em;text-transform:uppercase;display:flex;overflow:hidden;
-}
-.loader__word span{display:inline-block;transform:translateY(110%);animation:riseUp .8s var(--ease) forwards}
-.loader__count{font-size:.85rem;letter-spacing:.35em;color:var(--ink-dim)}
-@keyframes riseUp{to{transform:translateY(0)}}
-
-/* ---------- Barra de progreso ---------- */
-.progress{position:fixed;top:0;left:0;height:2px;width:0;background:var(--acid);z-index:9998}
-
-/* ---------- Nav ---------- */
-.nav{
-  position:fixed;top:0;left:0;right:0;z-index:1000;
-  display:flex;justify-content:space-between;align-items:center;
-  padding:1.1rem clamp(1.25rem,4vw,3rem);
-  transition:background .4s,backdrop-filter .4s,border-color .4s, transform .5s var(--ease);
-  border-bottom:1px solid transparent;
-}
-.nav.scrolled{background:rgba(10,10,11,.72);backdrop-filter:blur(14px);border-color:var(--line)}
-.nav.hidden{transform:translateY(-100%)}
-.nav__logo{font-family:var(--display);font-size:1.4rem;letter-spacing:.05em;display:flex;align-items:center;gap:.5rem}
-.nav__logo i{width:10px;height:10px;border-radius:50%;background:var(--acid);display:inline-block;animation:pulse 2s infinite}
-@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(217,255,61,.5)}50%{box-shadow:0 0 0 9px rgba(217,255,61,0)}}
-.nav__links{display:flex;gap:2rem;align-items:center}
-.nav__links a{font-size:.85rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-dim);position:relative;transition:color .3s}
-.nav__links a::after{content:"";position:absolute;left:0;bottom:-4px;width:100%;height:1px;background:var(--acid);transform:scaleX(0);transform-origin:right;transition:transform .4s var(--ease)}
-.nav__links a:hover{color:var(--ink)}
-.nav__links a:hover::after{transform:scaleX(1);transform-origin:left}
-.btn{
-  display:inline-flex;align-items:center;gap:.6rem;
-  background:var(--acid);color:#0a0a0b;border:none;border-radius:100px;
-  padding:.85rem 1.7rem;font-weight:700;font-size:.9rem;letter-spacing:.04em;
-  position:relative;overflow:hidden;transition:transform .3s var(--ease);
-  will-change:transform;
-}
-.btn::before{
-  content:"";position:absolute;inset:0;background:#fff;border-radius:100px;
-  transform:translateY(101%);transition:transform .45s var(--ease);
-}
-.btn span{position:relative;z-index:1}
-.btn:hover::before{transform:translateY(0)}
-.btn--ghost{background:transparent;color:var(--ink);border:1px solid var(--line)}
-.btn--ghost::before{background:var(--acid)}
-.btn--ghost:hover{color:#0a0a0b}
-.btn--ghost:hover span{color:#0a0a0b}
-.btn--big{padding:1.2rem 2.6rem;font-size:1.05rem}
-@media(max-width:820px){.nav__links a:not(.nav__cta){display:none}}
-
-/* ---------- Hero ---------- */
-.hero{
-  min-height:100svh;display:flex;flex-direction:column;justify-content:center;
-  padding:8rem clamp(1.25rem,4vw,3rem) 4rem;position:relative;
-}
-.orb{position:absolute;border-radius:50%;filter:blur(90px);opacity:.5;pointer-events:none;will-change:transform}
-.orb--1{width:44vw;height:44vw;top:-12%;right:-10%;background:radial-gradient(circle,rgba(254,44,85,.5),transparent 65%)}
-.orb--2{width:36vw;height:36vw;bottom:-8%;left:-8%;background:radial-gradient(circle,rgba(37,244,238,.4),transparent 65%)}
-.orb--3{width:22vw;height:22vw;top:34%;left:38%;background:radial-gradient(circle,rgba(217,255,61,.28),transparent 65%)}
-.hero__tag{
-  display:inline-flex;align-items:center;gap:.7rem;font-size:.8rem;letter-spacing:.3em;
-  text-transform:uppercase;color:var(--ink-dim);margin-bottom:2rem;
-}
-.hero__tag::before{content:"";width:44px;height:1px;background:var(--acid)}
-.hero h1{
-  font-family:var(--display);text-transform:uppercase;line-height:.92;
-  font-size:clamp(3.2rem,11.5vw,11rem);letter-spacing:.01em;font-weight:400;
-}
-.hero h1 .row{display:block;overflow:hidden}
-.hero h1 .row>span{display:inline-block;transform:translateY(110%);transition:transform 1.1s var(--ease)}
-.hero.in h1 .row>span{transform:translateY(0)}
-.hero h1 .accent{
-  color:transparent;-webkit-text-stroke:2px var(--acid);
-}
-.hero h1 .serif{font-family:var(--serif);font-style:italic;text-transform:none;font-size:.92em;letter-spacing:0;color:var(--acid)}
-.hero__sub{
-  max-width:520px;margin-top:2.4rem;color:var(--ink-dim);font-size:1.05rem;
-  opacity:0;transform:translateY(24px);transition:all 1s var(--ease) .6s;
-}
-.hero.in .hero__sub{opacity:1;transform:none}
-.hero__cta{display:flex;gap:1rem;margin-top:2.4rem;flex-wrap:wrap;opacity:0;transform:translateY(24px);transition:all 1s var(--ease) .8s}
-.hero.in .hero__cta{opacity:1;transform:none}
-.hero__meta{
-  position:absolute;bottom:2rem;left:clamp(1.25rem,4vw,3rem);right:clamp(1.25rem,4vw,3rem);
-  display:flex;justify-content:space-between;align-items:center;
-  font-size:.75rem;letter-spacing:.25em;text-transform:uppercase;color:var(--ink-dim);
-}
-.scroll-hint{display:flex;align-items:center;gap:.6rem}
-.scroll-hint i{width:1px;height:40px;background:var(--line);position:relative;overflow:hidden;display:block}
-.scroll-hint i::after{content:"";position:absolute;top:-100%;left:0;width:100%;height:100%;background:var(--acid);animation:drip 1.8s var(--ease) infinite}
-@keyframes drip{to{top:100%}}
-
-/* ---------- Marquee ---------- */
-.marquee{
-  border-top:1px solid var(--line);border-bottom:1px solid var(--line);
-  padding:1.3rem 0;overflow:hidden;white-space:nowrap;position:relative;
-  background:var(--bg-2);
-}
-.marquee__track{display:inline-flex;gap:3rem;animation:scrollX 26s linear infinite;will-change:transform}
-.marquee:hover .marquee__track{animation-play-state:paused}
-.marquee__track span{
-  font-family:var(--display);font-size:1.6rem;text-transform:uppercase;letter-spacing:.05em;
-  display:inline-flex;align-items:center;gap:3rem;color:var(--ink);
-}
-.marquee__track span::after{content:"✦";color:var(--acid);font-size:1.2rem}
-@keyframes scrollX{to{transform:translateX(-50%)}}
-.marquee--reverse .marquee__track{animation-direction:reverse}
-.marquee--acid{background:var(--acid)}
-.marquee--acid .marquee__track span{color:#0a0a0b}
-.marquee--acid .marquee__track span::after{color:#0a0a0b}
-
-/* ---------- Secciones base ---------- */
-section{position:relative}
-.wrap{max-width:1440px;margin:0 auto;padding:clamp(5rem,10vw,9rem) clamp(1.25rem,4vw,3rem)}
-.sec-head{display:flex;justify-content:space-between;align-items:flex-end;gap:2rem;margin-bottom:clamp(3rem,6vw,5rem);flex-wrap:wrap}
-.kicker{font-size:.78rem;letter-spacing:.35em;text-transform:uppercase;color:var(--acid);display:flex;align-items:center;gap:.8rem;margin-bottom:1.2rem}
-.kicker::before{content:"";width:34px;height:1px;background:var(--acid)}
-h2.title{
-  font-family:var(--display);text-transform:uppercase;font-weight:400;
-  font-size:clamp(2.4rem,6vw,5.5rem);line-height:.95;letter-spacing:.01em;
-}
-h2.title em{font-family:var(--serif);font-style:italic;text-transform:none;color:var(--acid);letter-spacing:0}
-.sec-head p{max-width:420px;color:var(--ink-dim)}
-
-/* Reveal on scroll */
-.reveal{opacity:0;transform:translateY(48px);transition:opacity 1s var(--ease),transform 1s var(--ease)}
-.reveal.in{opacity:1;transform:none}
-.reveal[data-delay="1"]{transition-delay:.12s}
-.reveal[data-delay="2"]{transition-delay:.24s}
-.reveal[data-delay="3"]{transition-delay:.36s}
-
-/* ---------- Stats ---------- */
-.stats{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line)}
-.stat{
-  padding:3rem 2rem;border-left:1px solid var(--line);position:relative;overflow:hidden;
-}
-.stat:first-child{border-left:none}
-.stat::after{content:"";position:absolute;inset:0;background:rgba(217,255,61,.06);transform:translateY(100%);transition:transform .5s var(--ease)}
-.stat:hover::after{transform:none}
-.stat__num{font-family:var(--display);font-size:clamp(2.6rem,5vw,4.4rem);line-height:1;color:var(--ink)}
-.stat__num b{color:var(--acid);font-weight:400}
-.stat__label{margin-top:.8rem;font-size:.8rem;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-dim)}
-@media(max-width:900px){.stats{grid-template-columns:repeat(2,1fr)}.stat:nth-child(3){border-left:none}}
-@media(max-width:520px){.stats{grid-template-columns:1fr}.stat{border-left:none;border-top:1px solid var(--line)}}
-
-/* ---------- Plataformas ---------- */
-.platforms{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem}
-.pcard{
-  position:relative;border:1px solid var(--line);border-radius:22px;overflow:hidden;
-  padding:2.6rem 2.2rem;min-height:480px;display:flex;flex-direction:column;
-  background:var(--bg-2);
-  transition:transform .5s var(--ease),border-color .5s;
-  will-change:transform;
-}
-.pcard:hover{transform:translateY(-10px)}
-.pcard__glow{position:absolute;inset:0;opacity:0;transition:opacity .6s;pointer-events:none}
-.pcard:hover .pcard__glow{opacity:1}
-.pcard--tiktok .pcard__glow{background:
-  radial-gradient(600px circle at var(--mx,50%) var(--my,20%),rgba(254,44,85,.22),transparent 45%),
-  radial-gradient(500px circle at calc(var(--mx,50%) + 15%) calc(var(--my,20%) + 20%),rgba(37,244,238,.18),transparent 45%)}
-.pcard--fav .pcard__glow{background:radial-gradient(600px circle at var(--mx,50%) var(--my,20%),rgba(255,122,89,.22),transparent 45%),
-  radial-gradient(500px circle at calc(var(--mx,50%) + 12%) calc(var(--my,20%) + 22%),rgba(177,59,255,.2),transparent 45%)}
-.pcard--fb .pcard__glow{background:radial-gradient(600px circle at var(--mx,50%) var(--my,20%),rgba(24,119,242,.28),transparent 50%)}
-.pcard--tiktok:hover{border-color:rgba(254,44,85,.5)}
-.pcard--fav:hover{border-color:rgba(255,122,89,.5)}
-.pcard--fb:hover{border-color:rgba(24,119,242,.6)}
-.pcard__icon{
-  width:58px;height:58px;border-radius:16px;display:grid;place-items:center;margin-bottom:2rem;
-  border:1px solid var(--line);background:rgba(255,255,255,.03);
-  transition:transform .5s var(--ease);
-}
-.pcard:hover .pcard__icon{transform:rotate(-8deg) scale(1.08)}
-.pcard__icon svg{width:26px;height:26px}
-.pcard h3{font-family:var(--display);font-size:1.9rem;font-weight:400;text-transform:uppercase;letter-spacing:.02em;line-height:1.05}
-.pcard__badge{
-  display:inline-block;margin-top:.9rem;margin-bottom:1.2rem;font-size:.68rem;letter-spacing:.22em;text-transform:uppercase;
-  border:1px solid var(--line);border-radius:100px;padding:.35rem .9rem;color:var(--ink-dim);width:fit-content;
-}
-.pcard p{color:var(--ink-dim);font-size:.95rem;flex:1}
-.pcard ul{list-style:none;margin-top:1.6rem;display:grid;gap:.65rem}
-.pcard li{display:flex;gap:.7rem;align-items:baseline;font-size:.9rem}
-.pcard li::before{content:"→";color:var(--acid);font-weight:700;flex:none;transition:transform .3s}
-.pcard:hover li::before{transform:translateX(4px)}
-.pcard--tiktok li::before{color:var(--tiktok-a)}
-.pcard--fav li::before{color:var(--fav-a)}
-.pcard--fb li::before{color:var(--fb)}
-@media(max-width:980px){.platforms{grid-template-columns:1fr}.pcard{min-height:0}}
-
-/* ---------- Servicios (lista tipo estudio) ---------- */
-.services{border-top:1px solid var(--line)}
-.srow{
-  display:grid;grid-template-columns:80px 1fr 1.1fr auto;gap:2rem;align-items:center;
-  padding:2.4rem 0;border-bottom:1px solid var(--line);position:relative;
-  transition:padding .4s var(--ease);
-}
-.srow:hover{padding-left:1.4rem}
-.srow::before{content:"";position:absolute;left:0;bottom:-1px;height:1px;width:0;background:var(--acid);transition:width .6s var(--ease)}
-.srow:hover::before{width:100%}
-.srow__idx{font-family:var(--serif);font-style:italic;font-size:1.3rem;color:var(--ink-dim)}
-.srow__name{font-family:var(--display);text-transform:uppercase;font-size:clamp(1.5rem,3.2vw,2.6rem);line-height:1;font-weight:400;transition:color .3s}
-.srow:hover .srow__name{color:var(--acid)}
-.srow__desc{color:var(--ink-dim);font-size:.95rem;max-width:480px}
-.srow__arrow{
-  width:52px;height:52px;border:1px solid var(--line);border-radius:50%;display:grid;place-items:center;
-  transition:background .4s,transform .5s var(--ease);flex:none;
-}
-.srow:hover .srow__arrow{background:var(--acid);transform:rotate(-45deg)}
-.srow:hover .srow__arrow svg path{stroke:#0a0a0b}
-@media(max-width:820px){.srow{grid-template-columns:1fr;gap:.7rem}.srow__arrow{display:none}}
-
-/* ---------- Proceso ---------- */
-.process{display:grid;grid-template-columns:repeat(4,1fr);gap:1.4rem;counter-reset:step}
-.step{
-  border:1px solid var(--line);border-radius:22px;padding:2.4rem 2rem;position:relative;overflow:hidden;
-  background:var(--bg-2);transition:transform .5s var(--ease),border-color .4s;
-}
-.step:hover{transform:translateY(-8px);border-color:rgba(217,255,61,.45)}
-.step::before{
-  counter-increment:step;content:"0" counter(step);
-  font-family:var(--display);font-size:5.5rem;line-height:1;
-  position:absolute;right:.8rem;top:.4rem;color:transparent;
-  -webkit-text-stroke:1px rgba(244,242,238,.14);
-  transition:color .4s,-webkit-text-stroke .4s;
-}
-.step:hover::before{color:rgba(217,255,61,.14);-webkit-text-stroke:1px rgba(217,255,61,.4)}
-.step h4{font-family:var(--display);font-weight:400;text-transform:uppercase;font-size:1.35rem;margin:3.4rem 0 .8rem}
-.step p{color:var(--ink-dim);font-size:.92rem}
-@media(max-width:980px){.process{grid-template-columns:repeat(2,1fr)}}
-@media(max-width:560px){.process{grid-template-columns:1fr}}
-
-/* ---------- Testimonios ---------- */
-.quotes{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem}
-.quote{
-  border:1px solid var(--line);border-radius:22px;padding:2.4rem 2rem;background:var(--bg-2);
-  display:flex;flex-direction:column;gap:1.6rem;transition:transform .5s var(--ease),border-color .4s;
-}
-.quote:hover{transform:translateY(-8px);border-color:rgba(217,255,61,.4)}
-.quote__stars{color:var(--acid);letter-spacing:.3em}
-.quote p{font-size:1.02rem;flex:1}
-.quote p em{font-family:var(--serif);color:var(--acid)}
-.quote__who{display:flex;align-items:center;gap:1rem}
-.quote__ava{
-  width:46px;height:46px;border-radius:50%;flex:none;
-  display:grid;place-items:center;font-weight:700;color:#0a0a0b;font-size:.9rem;
-}
-.quote__who b{display:block;font-size:.95rem}
-.quote__who small{color:var(--ink-dim);font-size:.78rem;letter-spacing:.08em;text-transform:uppercase}
-@media(max-width:980px){.quotes{grid-template-columns:1fr}}
-
-/* ---------- CTA gigante ---------- */
-.mega-cta{
-  text-align:center;padding:clamp(6rem,12vw,11rem) clamp(1.25rem,4vw,3rem);
-  position:relative;overflow:hidden;
-}
-.mega-cta h2{
-  font-family:var(--display);text-transform:uppercase;font-weight:400;
-  font-size:clamp(3rem,10vw,9.5rem);line-height:.95;
-}
-.mega-cta h2 .hollow{color:transparent;-webkit-text-stroke:2px var(--ink)}
-.mega-cta h2 .acid{color:var(--acid)}
-.mega-cta p{max-width:520px;margin:2rem auto 2.6rem;color:var(--ink-dim)}
-.mega-cta .orb--cta{width:50vw;height:50vw;top:50%;left:50%;transform:translate(-50%,-50%);opacity:.35;
-  background:radial-gradient(circle,rgba(217,255,61,.35),transparent 60%)}
-
-/* ---------- FAQ ---------- */
-.faq{max-width:880px;margin:0 auto}
-.faq-item{border-bottom:1px solid var(--line)}
-.faq-item button{
-  width:100%;background:none;border:none;color:var(--ink);
-  display:flex;justify-content:space-between;align-items:center;gap:2rem;
-  padding:1.8rem 0;text-align:left;font-size:clamp(1.05rem,2vw,1.35rem);font-weight:600;font-family:var(--body);
-  transition:color .3s;
-}
-.faq-item button:hover{color:var(--acid)}
-.faq-item .sign{
-  width:38px;height:38px;border:1px solid var(--line);border-radius:50%;flex:none;
-  display:grid;place-items:center;font-weight:400;font-size:1.3rem;
-  transition:transform .5s var(--ease),background .4s,color .4s;
-}
-.faq-item.open .sign{transform:rotate(135deg);background:var(--acid);color:#0a0a0b;border-color:var(--acid)}
-.faq-item .ans{max-height:0;overflow:hidden;transition:max-height .6s var(--ease)}
-.faq-item .ans p{color:var(--ink-dim);padding:0 0 1.8rem;max-width:720px}
-
-/* ---------- Formulario ---------- */
-.apply{display:grid;grid-template-columns:1fr 1fr;gap:clamp(2rem,6vw,5rem);align-items:start}
-.apply__info h2{margin-bottom:1.6rem}
-.apply__info p{color:var(--ink-dim);max-width:440px}
-.apply__perks{margin-top:2.4rem;display:grid;gap:1rem;list-style:none}
-.apply__perks li{display:flex;gap:.9rem;align-items:baseline}
-.apply__perks li::before{content:"✦";color:var(--acid);flex:none}
-.form{display:grid;gap:1.1rem;border:1px solid var(--line);border-radius:22px;padding:clamp(1.6rem,3vw,2.6rem);background:var(--bg-2)}
-.field label{display:block;font-size:.72rem;letter-spacing:.25em;text-transform:uppercase;color:var(--ink-dim);margin-bottom:.5rem}
-.field input,.field select,.field textarea{
-  width:100%;background:rgba(255,255,255,.04);border:1px solid var(--line);border-radius:12px;
-  color:var(--ink);padding:.95rem 1.1rem;font-family:var(--body);font-size:.95rem;outline:none;
-  transition:border-color .3s,background .3s;
-}
-.field input:focus,.field select:focus,.field textarea:focus{border-color:var(--acid);background:rgba(217,255,61,.05)}
-.field select option{background:var(--bg-2)}
-.form__row{display:grid;grid-template-columns:1fr 1fr;gap:1.1rem}
-.form .btn{justify-content:center}
-.form__note{font-size:.75rem;color:var(--ink-dim);text-align:center}
-@media(max-width:900px){.apply{grid-template-columns:1fr}.form__row{grid-template-columns:1fr}}
-
-/* ---------- Footer ---------- */
-footer{border-top:1px solid var(--line);padding:4rem clamp(1.25rem,4vw,3rem) 2rem;overflow:hidden}
-.foot-grid{display:flex;justify-content:space-between;gap:3rem;flex-wrap:wrap;margin-bottom:4rem}
-.foot-col h5{font-size:.72rem;letter-spacing:.3em;text-transform:uppercase;color:var(--ink-dim);margin-bottom:1.2rem}
-.foot-col a{display:block;padding:.3rem 0;color:var(--ink-dim);transition:color .3s,transform .3s;font-size:.95rem}
-.foot-col a:hover{color:var(--acid);transform:translateX(6px)}
-.foot-word{
-  font-family:var(--display);text-transform:uppercase;text-align:center;line-height:.85;
-  font-size:clamp(4rem,17vw,17rem);letter-spacing:.02em;user-select:none;
-  color:transparent;-webkit-text-stroke:1.5px rgba(244,242,238,.25);
-  transition:color .8s,-webkit-text-stroke .8s;cursor:default;
-}
-.foot-word:hover{color:var(--acid);-webkit-text-stroke:1.5px var(--acid)}
-.foot-legal{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;margin-top:2.5rem;font-size:.75rem;letter-spacing:.15em;text-transform:uppercase;color:var(--ink-dim)}
-
-/* accesibilidad: reduce motion */
-@media (prefers-reduced-motion:reduce){
-  *,*::before,*::after{animation-duration:.001s!important;transition-duration:.001s!important}
-  html{scroll-behavior:auto}
-}
-</style>
+<link rel="stylesheet" href="assets/styles.css">
 </head>
 <body>
 
@@ -413,18 +18,20 @@ footer{border-top:1px solid var(--line);padding:4rem clamp(1.25rem,4vw,3rem) 2re
 <div class="progress"></div>
 
 <!-- Preloader -->
-<div class="loader" id="loader">
+<div class="loader" id="loader" data-word="INNOVA">
   <div class="loader__word" id="loaderWord"></div>
+  <div class="loader__count">GROUP · BY ALLIANCE HOLDING</div>
   <div class="loader__count" id="loaderCount">0%</div>
 </div>
 
 <!-- ============ NAV ============ -->
 <nav class="nav" id="nav">
-  <a href="#top" class="nav__logo"><i></i>NOVA·MCN</a>
+  <a href="index.html" class="nav__logo"><i></i><span class="logo-txt">INNOVA GROUP<small>by Alliance Holding</small></span></a>
   <div class="nav__links">
     <a href="#plataformas">Plataformas</a>
     <a href="#servicios">Servicios</a>
-    <a href="#proceso">Proceso</a>
+    <a href="#referidos">Referidos</a>
+    <a href="#equipo">Equipo</a>
     <a href="#faq">FAQ</a>
     <a href="#aplica" class="btn nav__cta"><span>Aplica ahora</span></a>
   </div>
@@ -436,16 +43,16 @@ footer{border-top:1px solid var(--line);padding:4rem clamp(1.25rem,4vw,3rem) 2re
   <div class="orb orb--2" data-parallax="0.1"></div>
   <div class="orb orb--3" data-parallax="0.04"></div>
 
-  <span class="hero__tag">Red multicanal · Agencia de creadores</span>
+  <span class="hero__tag">Alliance Holding · Red multicanal de creadores</span>
   <h1 id="heroTitle">
     <span class="row"><span>Convertimos</span></span>
     <span class="row"><span><span class="serif">tus lives</span>&nbsp;en un</span></span>
-    <span class="row"><span><span class="accent">negocio</span>&nbsp;real.</span></span>
+    <span class="row"><span><span class="accent">imperio</span>&nbsp;real.</span></span>
   </h1>
   <p class="hero__sub">
-    Somos la MCN que lleva creadores de 0 a monetización seria en
-    <strong>TikTok LIVE</strong>, <strong>Favorited</strong> y <strong>Facebook</strong>.
-    Estrategia, coaching y pagos puntuales — tú solo enciende la cámara.
+    Somos el holding creativo detrás de <strong>TikTok LIVE Agency</strong>, <strong>Favorited</strong> y
+    <strong>Facebook</strong>: la alianza que convierte creadores en marcas — y marcas en imperios.
+    Estrategia, coaching y pagos puntuales. Tú solo enciende la cámara.
   </p>
   <div class="hero__cta">
     <a href="#aplica" class="btn btn--big"><span>Únete a la red →</span></a>
@@ -453,7 +60,7 @@ footer{border-top:1px solid var(--line);padding:4rem clamp(1.25rem,4vw,3rem) 2re
   </div>
 
   <div class="hero__meta">
-    <span>EST. 2024 — LATAM & WORLDWIDE</span>
+    <span>EST. 2024 — LATAM &amp; WORLDWIDE</span>
     <span class="scroll-hint">Scroll <i></i></span>
     <span>TikTok · Favorited · Facebook</span>
   </div>
@@ -463,9 +70,9 @@ footer{border-top:1px solid var(--line);padding:4rem clamp(1.25rem,4vw,3rem) 2re
 <div class="marquee">
   <div class="marquee__track" data-marquee>
     <span>TikTok LIVE Agency</span><span>Favorited Partner</span><span>Facebook Monetización</span>
-    <span>Coaching 1:1</span><span>Pagos puntuales</span><span>Batallas & PK</span>
+    <span>Programa de Referidos</span><span>Trabaja con Nosotros</span><span>Pagos puntuales</span>
     <span>TikTok LIVE Agency</span><span>Favorited Partner</span><span>Facebook Monetización</span>
-    <span>Coaching 1:1</span><span>Pagos puntuales</span><span>Batallas & PK</span>
+    <span>Programa de Referidos</span><span>Trabaja con Nosotros</span><span>Pagos puntuales</span>
   </div>
 </div>
 
@@ -496,15 +103,19 @@ footer{border-top:1px solid var(--line);padding:4rem clamp(1.25rem,4vw,3rem) 2re
         <div class="kicker">Donde monetizamos</div>
         <h2 class="title">Tres plataformas,<br><em>una sola máquina</em></h2>
       </div>
-      <p>Cada plataforma tiene sus reglas, sus métricas y sus trucos. Nosotros dominamos las tres para que tu contenido rinda en todas.</p>
+      <p>Cada plataforma tiene sus reglas, sus métricas y sus trucos. Nosotros dominamos las tres para que tu contenido rinda en todas. Toca una para ver cómo funciona y sus beneficios.</p>
     </div>
 
     <div class="platforms">
       <!-- TikTok -->
       <article class="pcard pcard--tiktok reveal" data-tilt>
         <div class="pcard__glow"></div>
-        <div class="pcard__icon">
-          <svg viewBox="0 0 24 24" fill="none"><path d="M16.6 5.82C15.91 5.03 15.5 4 15.5 2.9h-3.1v12.4a2.6 2.6 0 1 1-2.6-2.6c.27 0 .53.04.78.12V9.66a5.8 5.8 0 0 0-.78-.06 5.7 5.7 0 1 0 5.7 5.7V9.35a7.35 7.35 0 0 0 4.3 1.38V7.63a4.3 4.3 0 0 1-3.2-1.8Z" fill="#fe2c55"/><path d="M16.6 5.82C15.91 5.03 15.5 4 15.5 2.9h-3.1v12.4a2.6 2.6 0 1 1-2.6-2.6c.27 0 .53.04.78.12V9.66a5.8 5.8 0 0 0-.78-.06 5.7 5.7 0 1 0 5.7 5.7V9.35a7.35 7.35 0 0 0 4.3 1.38V7.63a4.3 4.3 0 0 1-3.2-1.8Z" fill="#25f4ee" fill-opacity=".55" transform="translate(-.7 -.5)"/></svg>
+        <div class="pcard__icon icon-tiktok">
+          <svg viewBox="0 0 448 512">
+            <path fill="#25F4EE" transform="translate(-6,4)" d="M448,209.91a210.06,210.06,0,0,1-122.77-39.25V349.38A162.55,162.55,0,1,1,185,188.31V278.2a74.62,74.62,0,1,0,52.23,71.18V0l88,0a121.18,121.18,0,0,0,1.86,22.17h0A122.18,122.18,0,0,0,381,102.39a121.43,121.43,0,0,0,67,20.14Z"/>
+            <path fill="#FE2C55" transform="translate(6,-4)" d="M448,209.91a210.06,210.06,0,0,1-122.77-39.25V349.38A162.55,162.55,0,1,1,185,188.31V278.2a74.62,74.62,0,1,0,52.23,71.18V0l88,0a121.18,121.18,0,0,0,1.86,22.17h0A122.18,122.18,0,0,0,381,102.39a121.43,121.43,0,0,0,67,20.14Z"/>
+            <path fill="#fff" d="M448,209.91a210.06,210.06,0,0,1-122.77-39.25V349.38A162.55,162.55,0,1,1,185,188.31V278.2a74.62,74.62,0,1,0,52.23,71.18V0l88,0a121.18,121.18,0,0,0,1.86,22.17h0A122.18,122.18,0,0,0,381,102.39a121.43,121.43,0,0,0,67,20.14Z"/>
+          </svg>
         </div>
         <h3>TikTok LIVE<br>Agency</h3>
         <span class="pcard__badge">Agencia oficial</span>
@@ -513,15 +124,15 @@ footer{border-top:1px solid var(--line);padding:4rem clamp(1.25rem,4vw,3rem) 2re
           <li>Bonos e incentivos exclusivos de agencia</li>
           <li>Estrategia de batallas PK y horarios óptimos</li>
           <li>Protección de cuenta y acompañamiento</li>
-          <li>Cobros de diamantes sin dolores de cabeza</li>
         </ul>
+        <a href="tiktok/index.html" class="pcard__more">Cómo funciona &amp; beneficios <span>→</span></a>
       </article>
 
       <!-- Favorited -->
       <article class="pcard pcard--fav reveal" data-delay="1" data-tilt>
         <div class="pcard__glow"></div>
-        <div class="pcard__icon">
-          <svg viewBox="0 0 24 24" fill="none"><path d="M12 2.5c.5 2.6 1.4 4.6 2.8 6 1.4 1.4 3.4 2.3 6 2.8v1.4c-2.6.5-4.6 1.4-6 2.8-1.4 1.4-2.3 3.4-2.8 6h-1.4c-.5-2.6-1.4-4.6-2.8-6-1.4-1.4-3.4-2.3-6-2.8v-1.4c2.6-.5 4.6-1.4 6-2.8 1.4-1.4 2.3-3.4 2.8-6h1.4Z" fill="url(#favg)"/><defs><linearGradient id="favg" x1="2" y1="2" x2="22" y2="22"><stop stop-color="#ff7a59"/><stop offset="1" stop-color="#b13bff"/></linearGradient></defs></svg>
+        <div class="pcard__icon icon-fav">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M12 2.2c.55 2.75 1.5 4.85 2.95 6.3 1.45 1.45 3.55 2.4 6.3 2.95v1.1c-2.75.55-4.85 1.5-6.3 2.95-1.45 1.45-2.4 3.55-2.95 6.3h-1.1c-.55-2.75-1.5-4.85-2.95-6.3-1.45-1.45-3.55-2.4-6.3-2.95v-1.1c2.75-.55 4.85-1.5 6.3-2.95 1.45-1.45 2.4-3.55 2.95-6.3Z" fill="url(#favg)"/><defs><linearGradient id="favg" x1="2" y1="2" x2="22" y2="22"><stop stop-color="#ff7a59"/><stop offset="1" stop-color="#b13bff"/></linearGradient></defs></svg>
         </div>
         <h3>Favorited<br>Creators</h3>
         <span class="pcard__badge">Partner verificado</span>
@@ -529,16 +140,16 @@ footer{border-top:1px solid var(--line);padding:4rem clamp(1.25rem,4vw,3rem) 2re
         <ul>
           <li>RPM por hora superior al promedio del mercado</li>
           <li>Acceso anticipado a eventos y campañas</li>
-          <li>Cross-promo con toda nuestra red de talento</li>
-          <li>Onboarding guiado desde el día uno</li>
+          <li>Onboarding guiado con nuestro link oficial</li>
         </ul>
+        <a href="favorited/index.html" class="pcard__more">Cómo funciona &amp; beneficios <span>→</span></a>
       </article>
 
       <!-- Facebook -->
       <article class="pcard pcard--fb reveal" data-delay="2" data-tilt>
         <div class="pcard__glow"></div>
-        <div class="pcard__icon">
-          <svg viewBox="0 0 24 24" fill="none"><path d="M22 12a10 10 0 1 0-11.56 9.88v-6.99H7.9V12h2.54V9.8c0-2.5 1.5-3.9 3.77-3.9 1.1 0 2.24.2 2.24.2v2.46H15.2c-1.24 0-1.63.77-1.63 1.56V12h2.78l-.44 2.89h-2.34v6.99A10 10 0 0 0 22 12Z" fill="#1877f2"/></svg>
+        <div class="pcard__icon icon-fb">
+          <svg viewBox="0 0 320 512"><path fill="#fff" d="M279.14 288l14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S260.43 0 225.36 0c-73.22 0-121.08 44.38-121.08 124.72v70.62H22.89V288h81.39v224h100.17V288z"/></svg>
         </div>
         <h3>Facebook<br>Monetización</h3>
         <span class="pcard__badge">Stars · Reels · Bonus</span>
@@ -546,9 +157,9 @@ footer{border-top:1px solid var(--line);padding:4rem clamp(1.25rem,4vw,3rem) 2re
         <ul>
           <li>Activación de Stars y suscripciones de fans</li>
           <li>Estrategia de Reels con bonus programs</li>
-          <li>Optimización de contenido para el algoritmo</li>
           <li>Diversificación real: nunca dependas de una app</li>
         </ul>
+        <a href="facebook/index.html" class="pcard__more">Cómo funciona &amp; beneficios <span>→</span></a>
       </article>
     </div>
   </div>
@@ -557,8 +168,8 @@ footer{border-top:1px solid var(--line);padding:4rem clamp(1.25rem,4vw,3rem) 2re
 <!-- ============ MARQUEE ACID ============ -->
 <div class="marquee marquee--acid marquee--reverse">
   <div class="marquee__track" data-marquee>
-    <span>Aplica hoy</span><span>Monetiza mañana</span><span>Sin permanencia forzada</span><span>Tu cuenta es tuya</span>
-    <span>Aplica hoy</span><span>Monetiza mañana</span><span>Sin permanencia forzada</span><span>Tu cuenta es tuya</span>
+    <span>Aplica hoy</span><span>Monetiza mañana</span><span>Gana por referidos</span><span>Tu cuenta es tuya</span>
+    <span>Aplica hoy</span><span>Monetiza mañana</span><span>Gana por referidos</span><span>Tu cuenta es tuya</span>
   </div>
 </div>
 
@@ -570,7 +181,7 @@ footer{border-top:1px solid var(--line);padding:4rem clamp(1.25rem,4vw,3rem) 2re
         <div class="kicker">Qué hacemos por ti</div>
         <h2 class="title">Servicio completo,<br><em>cero excusas</em></h2>
       </div>
-      <p>Desde tu primer live hasta tu primer cheque grande. Esto es lo que incluye estar dentro de NOVA.</p>
+      <p>Desde tu primer live hasta tu primer cheque grande. Esto es lo que incluye estar dentro de Innova Group.</p>
     </div>
 
     <div class="services">
@@ -582,7 +193,7 @@ footer{border-top:1px solid var(--line);padding:4rem clamp(1.25rem,4vw,3rem) 2re
       </div>
       <div class="srow reveal">
         <span class="srow__idx">(02)</span>
-        <h3 class="srow__name">Estrategia & Data</h3>
+        <h3 class="srow__name">Estrategia &amp; Data</h3>
         <p class="srow__desc">Analizamos tus métricas semana a semana: mejores horarios, duración óptima, qué contenido convierte espectadores en gifters.</p>
         <span class="srow__arrow"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M3 15L15 3M15 3H6M15 3v9" stroke="#f4f2ee" stroke-width="1.5"/></svg></span>
       </div>
@@ -594,13 +205,13 @@ footer{border-top:1px solid var(--line);padding:4rem clamp(1.25rem,4vw,3rem) 2re
       </div>
       <div class="srow reveal">
         <span class="srow__idx">(04)</span>
-        <h3 class="srow__name">Campañas & Marcas</h3>
+        <h3 class="srow__name">Campañas &amp; Marcas</h3>
         <p class="srow__desc">Conectamos a nuestros creadores top con marcas y campañas pagadas. Tu live también es tu portafolio.</p>
         <span class="srow__arrow"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M3 15L15 3M15 3H6M15 3v9" stroke="#f4f2ee" stroke-width="1.5"/></svg></span>
       </div>
       <div class="srow reveal">
         <span class="srow__idx">(05)</span>
-        <h3 class="srow__name">Comunidad NOVA</h3>
+        <h3 class="srow__name">Comunidad Innova</h3>
         <p class="srow__desc">Red privada de creadores: colaboraciones, raids, multi-guest, eventos internos y la energía de no crecer solo.</p>
         <span class="srow__arrow"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M3 15L15 3M15 3H6M15 3v9" stroke="#f4f2ee" stroke-width="1.5"/></svg></span>
       </div>
@@ -626,6 +237,35 @@ footer{border-top:1px solid var(--line);padding:4rem clamp(1.25rem,4vw,3rem) 2re
   </div>
 </section>
 
+<!-- ============ REFERIDOS ============ -->
+<section id="referidos">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div>
+        <div class="kicker">Gana sin transmitir</div>
+        <h2 class="title">Refiere <em>y cobra</em><br>todos los meses</h2>
+      </div>
+      <p>¿Conoces a alguien con potencial frente a cámara? Refiérelo a Innova Group y gana una comisión recurrente por cada creador activo que traigas a la red — sin techo, sin letra chica.</p>
+    </div>
+
+    <div class="stats reveal" style="margin-bottom:2.4rem">
+      <div class="stat"><div class="stat__num"><span data-count="10">0</span><b>%</b></div><div class="stat__label">Comisión recurrente por referido</div></div>
+      <div class="stat"><div class="stat__num">∞</div><div class="stat__label">Sin límite de referidos activos</div></div>
+      <div class="stat"><div class="stat__num"><span data-count="48">0</span><b>h</b></div><div class="stat__label">Para validar a tu referido</div></div>
+      <div class="stat"><div class="stat__num">100<b>%</b></div><div class="stat__label">Transparente en tu panel</div></div>
+    </div>
+
+    <div class="process">
+      <div class="step reveal"><h4>Comparte</h4><p>Recibe tu código de referido personal y compártelo con creadores que conozcas.</p></div>
+      <div class="step reveal" data-delay="1"><h4>Se valida</h4><p>Tu referido aplica mencionando tu código; nuestro equipo lo activa en la red.</p></div>
+      <div class="step reveal" data-delay="2"><h4>Cobras</h4><p>Ganas un % recurrente de su actividad cada mes, mientras siga activo con nosotros.</p></div>
+    </div>
+    <div class="reveal" style="margin-top:2.6rem;text-align:center">
+      <a href="index.html?rol=Referidor#aplica" class="btn btn--big"><span>Quiero ser referidor →</span></a>
+    </div>
+  </div>
+</section>
+
 <!-- ============ TESTIMONIOS ============ -->
 <section>
   <div class="wrap">
@@ -638,7 +278,7 @@ footer{border-top:1px solid var(--line);padding:4rem clamp(1.25rem,4vw,3rem) 2re
     <div class="quotes">
       <figure class="quote reveal">
         <span class="quote__stars">★★★★★</span>
-        <p>"Llevaba un año haciendo lives sin cobrar nada serio. En mi <em>segundo mes</em> con NOVA tripliqué mis diamantes y entendí por fin cómo funciona el juego."</p>
+        <p>"Llevaba un año haciendo lives sin cobrar nada serio. En mi <em>segundo mes</em> con Innova Group tripliqué mis diamantes y entendí por fin cómo funciona el juego."</p>
         <figcaption class="quote__who">
           <span class="quote__ava" style="background:linear-gradient(135deg,#25f4ee,#fe2c55)">KR</span>
           <span><b>Karla R.</b><small>TikTok LIVE · 120K</small></span>
@@ -660,6 +300,45 @@ footer{border-top:1px solid var(--line);padding:4rem clamp(1.25rem,4vw,3rem) 2re
           <span><b>Luisa P.</b><small>Facebook · 300K</small></span>
         </figcaption>
       </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TRABAJA CON NOSOTROS ============ -->
+<section id="equipo">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div>
+        <div class="kicker">Únete al equipo</div>
+        <h2 class="title">Trabaja<br><em>con nosotros</em></h2>
+      </div>
+      <p>Innova Group también contrata talento fuera de cámara. Si quieres construir el futuro del entretenimiento en vivo desde adentro, este es tu lugar.</p>
+    </div>
+    <div class="benefits">
+      <a href="index.html?rol=Manager%20de%20Creadores#aplica" class="benefit reveal">
+        <span class="benefit__icon">M</span>
+        <span>
+          <h4>Manager de Creadores</h4>
+          <p>Acompaña a un roster de talento: coaching, calendarios de batallas y crecimiento de cuenta.</p>
+        </span>
+      </a>
+      <a href="index.html?rol=Growth%20%26%20Data#aplica" class="benefit reveal" data-delay="1">
+        <span class="benefit__icon">G</span>
+        <span>
+          <h4>Growth &amp; Data</h4>
+          <p>Analiza métricas de la red, detecta oportunidades y optimiza estrategia por plataforma.</p>
+        </span>
+      </a>
+      <a href="index.html?rol=Community%20%26%20Soporte#aplica" class="benefit reveal" data-delay="2">
+        <span class="benefit__icon">C</span>
+        <span>
+          <h4>Community &amp; Soporte</h4>
+          <p>Sé el punto de contacto diario de nuestros creadores: soporte, comunidad y resolución rápida.</p>
+        </span>
+      </a>
+    </div>
+    <div class="reveal" style="margin-top:2.6rem;text-align:center">
+      <a href="index.html?rol=Equipo%20Innova#aplica" class="btn btn--ghost btn--big"><span>Ver todas las vacantes →</span></a>
     </div>
   </div>
 </section>
@@ -686,7 +365,7 @@ footer{border-top:1px solid var(--line);padding:4rem clamp(1.25rem,4vw,3rem) 2re
     </div>
     <div class="faq">
       <div class="faq-item reveal">
-        <button type="button">¿Cuánto cuesta unirse a NOVA MCN?<span class="sign">+</span></button>
+        <button type="button">¿Cuánto cuesta unirse a Innova Group?<span class="sign">+</span></button>
         <div class="ans"><p>Nada. No cobramos cuotas de entrada ni mensualidades. Nuestra comisión sale de los incentivos de agencia que las plataformas nos pagan por desarrollarte — cuando tú ganas, nosotros ganamos. Nunca al revés.</p></div>
       </div>
       <div class="faq-item reveal">
@@ -696,6 +375,10 @@ footer{border-top:1px solid var(--line);padding:4rem clamp(1.25rem,4vw,3rem) 2re
       <div class="faq-item reveal">
         <button type="button">¿Pierdo el control de mi cuenta?<span class="sign">+</span></button>
         <div class="ans"><p>Jamás. Tu cuenta, tu contenido y tu audiencia son tuyos siempre. Nosotros somos tu equipo de estrategia y gestión, no los dueños de tu carrera. Y si algún día quieres salir, el proceso es claro y sin ataduras raras.</p></div>
+      </div>
+      <div class="faq-item reveal">
+        <button type="button">¿Cómo funciona el programa de referidos?<span class="sign">+</span></button>
+        <div class="ans"><p>Recibes un código personal. Cuando alguien lo usa al aplicar y es aceptado en la red, ganas una comisión recurrente sobre su actividad mientras siga activo con nosotros — sin límite de personas que puedas referir.</p></div>
       </div>
       <div class="faq-item reveal">
         <button type="button">¿Cómo y cuándo cobro?<span class="sign">+</span></button>
@@ -716,7 +399,7 @@ footer{border-top:1px solid var(--line);padding:4rem clamp(1.25rem,4vw,3rem) 2re
       <div class="apply__info reveal">
         <div class="kicker">Únete a la red</div>
         <h2 class="title">Aplica en<br><em>dos minutos</em></h2>
-        <p>Cuéntanos quién eres y dónde creas. Nuestro equipo revisa cada aplicación personalmente y te responde en menos de 48 horas.</p>
+        <p>Cuéntanos quién eres: creador, referidor o futuro miembro del equipo. Nuestro equipo revisa cada aplicación personalmente y te responde en menos de 48 horas.</p>
         <ul class="apply__perks">
           <li>Respuesta garantizada en 48h</li>
           <li>Sin costo de entrada, sin letra chica</li>
@@ -732,13 +415,14 @@ footer{border-top:1px solid var(--line);padding:4rem clamp(1.25rem,4vw,3rem) 2re
         <div class="form__row">
           <div class="field"><label for="f-user">Usuario principal</label><input id="f-user" type="text" placeholder="@tuusuario" required></div>
           <div class="field">
-            <label for="f-plat">Plataforma</label>
+            <label for="f-plat">Plataforma / Área</label>
             <select id="f-plat" required>
               <option value="">Elige una…</option>
               <option>TikTok LIVE</option>
               <option>Favorited</option>
               <option>Facebook</option>
               <option>Varias / todas</option>
+              <option>Equipo Innova / Referidos</option>
             </select>
           </div>
         </div>
@@ -754,178 +438,38 @@ footer{border-top:1px solid var(--line);padding:4rem clamp(1.25rem,4vw,3rem) 2re
 <footer>
   <div class="foot-grid">
     <div class="foot-col" style="max-width:320px">
-      <a href="#top" class="nav__logo" style="margin-bottom:1rem"><i></i>NOVA·MCN</a>
-      <p style="color:var(--ink-dim);font-size:.9rem;margin-top:1rem">La red multicanal que convierte lives en carreras. LATAM y el mundo, en vivo, todos los días.</p>
+      <a href="index.html" class="nav__logo" style="margin-bottom:1rem"><i></i><span class="logo-txt">INNOVA GROUP<small>by Alliance Holding</small></span></a>
+      <p style="color:var(--ink-dim);font-size:.9rem;margin-top:1rem">El holding de creadores que convierte lives en carreras. LATAM y el mundo, en vivo, todos los días.</p>
     </div>
     <div class="foot-col">
       <h5>Navega</h5>
       <a href="#plataformas">Plataformas</a>
       <a href="#servicios">Servicios</a>
-      <a href="#proceso">Proceso</a>
+      <a href="#referidos">Referidos</a>
+      <a href="#equipo">Equipo</a>
       <a href="#aplica">Aplica</a>
     </div>
     <div class="foot-col">
       <h5>Plataformas</h5>
-      <a href="#plataformas">TikTok LIVE Agency</a>
-      <a href="#plataformas">Favorited</a>
-      <a href="#plataformas">Facebook</a>
+      <a href="tiktok/index.html">TikTok LIVE Agency</a>
+      <a href="favorited/index.html">Favorited</a>
+      <a href="facebook/index.html">Facebook</a>
     </div>
     <div class="foot-col">
       <h5>Contacto</h5>
-      <a href="mailto:hola@novamcn.com">hola@novamcn.com</a>
+      <a href="mailto:hola@innovagroup.com">hola@innovagroup.com</a>
       <a href="#">WhatsApp Business</a>
       <a href="#">Instagram</a>
       <a href="#">TikTok</a>
     </div>
   </div>
-  <div class="foot-word" title="NOVA MCN">NOVA</div>
+  <div class="foot-word" title="Innova Group">INNOVA</div>
   <div class="foot-legal">
-    <span>© 2026 NOVA MCN — Todos los derechos reservados</span>
+    <span>© 2026 Innova Group by Alliance Holding — Todos los derechos reservados</span>
     <span>Hecho para transmitir en grande ✦</span>
   </div>
 </footer>
 
-<script>
-/* ============================================================
-   Motion & interacción
-   ============================================================ */
-(function(){
-  const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-  /* ---------- Preloader ---------- */
-  const loader = document.getElementById('loader');
-  const word = document.getElementById('loaderWord');
-  const count = document.getElementById('loaderCount');
-  'NOVA·MCN'.split('').forEach((ch,i)=>{
-    const s = document.createElement('span');
-    s.textContent = ch;
-    s.style.animationDelay = (i*0.055)+'s';
-    word.appendChild(s);
-  });
-  let p = 0;
-  const tick = setInterval(()=>{
-    p = Math.min(100, p + Math.ceil(Math.random()*14));
-    count.textContent = p + '%';
-    if(p >= 100){
-      clearInterval(tick);
-      setTimeout(()=>{
-        loader.classList.add('done');
-        document.querySelector('.hero').classList.add('in');
-        setTimeout(()=>loader.remove(), 1100);
-      }, 250);
-    }
-  }, reduced ? 1 : 90);
-
-  /* ---------- Cursor ---------- */
-  const dot = document.querySelector('.cursor-dot');
-  const ring = document.querySelector('.cursor-ring');
-  let mx=innerWidth/2, my=innerHeight/2, rx=mx, ry=my;
-  addEventListener('mousemove', e=>{
-    mx=e.clientX; my=e.clientY;
-    dot.style.left=mx+'px'; dot.style.top=my+'px';
-  });
-  (function followRing(){
-    rx += (mx-rx)*0.16; ry += (my-ry)*0.16;
-    ring.style.left=rx+'px'; ring.style.top=ry+'px';
-    requestAnimationFrame(followRing);
-  })();
-  document.querySelectorAll('a,button,.pcard,.srow,.faq-item button').forEach(el=>{
-    el.addEventListener('mouseenter',()=>ring.classList.add('is-hover'));
-    el.addEventListener('mouseleave',()=>ring.classList.remove('is-hover'));
-  });
-
-  /* ---------- Nav: fondo + auto-hide ---------- */
-  const nav = document.getElementById('nav');
-  const progress = document.querySelector('.progress');
-  let lastY = 0;
-  addEventListener('scroll', ()=>{
-    const y = scrollY;
-    nav.classList.toggle('scrolled', y > 40);
-    nav.classList.toggle('hidden', y > 500 && y > lastY);
-    lastY = y;
-    const h = document.documentElement.scrollHeight - innerHeight;
-    progress.style.width = (h ? (y/h)*100 : 0) + '%';
-    /* parallax de orbes */
-    if(!reduced){
-      document.querySelectorAll('[data-parallax]').forEach(o=>{
-        o.style.transform = 'translateY(' + (y * parseFloat(o.dataset.parallax) * -1) + 'px)';
-      });
-    }
-  }, {passive:true});
-
-  /* ---------- Reveal on scroll ---------- */
-  const io = new IntersectionObserver(entries=>{
-    entries.forEach(en=>{
-      if(en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target); }
-    });
-  }, {threshold:0.12, rootMargin:'0px 0px -40px 0px'});
-  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
-
-  /* ---------- Contadores ---------- */
-  const cio = new IntersectionObserver(entries=>{
-    entries.forEach(en=>{
-      if(!en.isIntersecting) return;
-      cio.unobserve(en.target);
-      const el = en.target, target = +el.dataset.count, dur = 1600, t0 = performance.now();
-      (function step(t){
-        const k = Math.min(1,(t-t0)/dur), e = 1-Math.pow(1-k,4);
-        el.textContent = Math.round(target*e).toLocaleString('es');
-        if(k<1) requestAnimationFrame(step);
-      })(t0);
-    });
-  }, {threshold:0.6});
-  document.querySelectorAll('[data-count]').forEach(el=>cio.observe(el));
-
-  /* ---------- Tilt + glow que sigue el mouse ---------- */
-  if(!reduced && matchMedia('(hover:hover)').matches){
-    document.querySelectorAll('[data-tilt]').forEach(card=>{
-      card.addEventListener('mousemove', e=>{
-        const r = card.getBoundingClientRect();
-        const x = (e.clientX - r.left)/r.width, y = (e.clientY - r.top)/r.height;
-        card.style.setProperty('--mx', (x*100)+'%');
-        card.style.setProperty('--my', (y*100)+'%');
-        card.style.transform = 'translateY(-10px) rotateX('+((0.5-y)*6)+'deg) rotateY('+((x-0.5)*6)+'deg)';
-        card.style.transformStyle='preserve-3d';
-      });
-      card.addEventListener('mouseleave', ()=>{ card.style.transform=''; });
-    });
-  }
-
-  /* ---------- FAQ acordeón ---------- */
-  document.querySelectorAll('.faq-item').forEach(item=>{
-    const btn = item.querySelector('button');
-    const ans = item.querySelector('.ans');
-    btn.addEventListener('click', ()=>{
-      const open = item.classList.contains('open');
-      document.querySelectorAll('.faq-item.open').forEach(o=>{
-        o.classList.remove('open'); o.querySelector('.ans').style.maxHeight = null;
-      });
-      if(!open){
-        item.classList.add('open');
-        ans.style.maxHeight = ans.scrollHeight + 'px';
-      }
-    });
-  });
-
-  /* ---------- Formulario (demo sin backend) ---------- */
-  document.getElementById('applyForm').addEventListener('submit', e=>{
-    e.preventDefault();
-    const label = document.getElementById('submitLabel');
-    label.textContent = '✓ ¡Aplicación recibida!';
-    setTimeout(()=>{ label.textContent = 'Enviar aplicación →'; e.target.reset(); }, 3500);
-  });
-
-  /* ---------- Botones magnéticos ---------- */
-  if(!reduced && matchMedia('(hover:hover)').matches){
-    document.querySelectorAll('.btn').forEach(btn=>{
-      btn.addEventListener('mousemove', e=>{
-        const r = btn.getBoundingClientRect();
-        btn.style.transform = 'translate(' + (e.clientX-r.left-r.width/2)*0.18 + 'px,' + (e.clientY-r.top-r.height/2)*0.3 + 'px)';
-      });
-      btn.addEventListener('mouseleave', ()=>{ btn.style.transform=''; });
-    });
-  }
-})();
-</script>
+<script src="assets/site.js"></script>
 </body>
 </html>
