@@ -21,8 +21,8 @@
   --ease:cubic-bezier(.22,1,.36,1);
 }
 *{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth;overflow-x:hidden}
-html,body{overscroll-behavior:none;max-width:100%}
+html{scroll-behavior:smooth}
+html,body{overscroll-behavior-y:none;max-width:100%}
 body{
   background:var(--bg);
   color:var(--ink);
@@ -102,6 +102,8 @@ button{font-family:inherit;cursor:pointer}
 .nav__links a::after{content:"";position:absolute;left:0;bottom:-4px;width:100%;height:1px;background:var(--acid);transform:scaleX(0);transform-origin:right;transition:transform .4s var(--ease)}
 .nav__links a:hover{color:var(--ink)}
 .nav__links a:hover::after{transform:scaleX(1);transform-origin:left}
+.nav__links a.btn,.nav__links a.btn:hover{color:#0a0a0b}
+.nav__links a.btn::after{display:none}
 .btn{
   display:inline-flex;align-items:center;gap:.6rem;
   background:var(--acid);color:#0a0a0b;border:none;border-radius:100px;
